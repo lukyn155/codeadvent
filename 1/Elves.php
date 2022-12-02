@@ -17,13 +17,15 @@ class Elves {
     public function __construct($calories) {
         $this->calories = $calories;
     }
-
+    
+    /* Projde pole a zobrazí jednotlivé hodnoty kalorií pro konkrétní instanci elfa*/
     public function getCalories() {
         foreach ($this->calories as $key => $value) {
             echo "{$value}<br>";
         }
     }
 
+    /* Vrátí celkový součet všech kalorií */
     public function getSumCalories() {
         $sum = 0;
         foreach ($this->calories as $key => $value) {

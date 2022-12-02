@@ -16,3 +16,17 @@ h1 {
     color: #99ff99;
     text-shadow: 0 0 2px #99ff99, 0 0 5px #99ff99;
 }
+
+#left {
+    display: inline-block;
+    float: left;
+    width: 49.5%;
+    /*border: 1px solid #99ff99;*/
+}
+
+#right {
+    display: inline-block;
+    float: right;
+    width: 49.5%;
+    /*border: 1px solid #99ff99;*/
+}

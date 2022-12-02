@@ -1,19 +1,23 @@
 <?php
 require_once './shape.php';
 
+/* Vyvoření všech tvarů atributy - Jměno, Hodnota tvaru, Nad čím prohraje, Vyhraje, Remizuje, Index tvaru nad kterým prohraje, Vyhraje, Remizuje*/
 $rock = new Shape("Rock", 1, "Scissors", "Paper", "Rock", "C", "B", "A");
 $paper = new Shape("Paper", 2, "Rock", "Scissors", "Paper", "A", "C", "B");
 $scissors = new Shape("Scissors", 3, "Paper", "Rock", "Scissors", "B", "A", "C");
+
+/* Pole označující tvar podle indexu */
 $shapes = array("A" => $rock, "B" => $paper, "C" => $scissors, "X" => $rock, "Y" => $paper, "Z" => $scissors);
 
-$second_part = array("A" => $rock, "B" => $paper, "C" => $scissors, "X" => "lost", "Y" => "draw", "Z" => "win");
-
+/* Body za jednotlivé výsledky*/
 $win = 6;
 $draw = 3;
 $lost = 0;
 
 function play($opponent, $me, $shapes) {
+    /* Zjištění oponentova objektu v poli shapes*/
     $first = $shapes[$opponent];
+    /* Zjištění mého objektu v poli shapes*/
     $second = $shapes[$me];
 
     $points = 0;
@@ -31,6 +35,7 @@ function play($opponent, $me, $shapes) {
 }
 
 function fullGuide($opponent, $result, $shapes) {
+    /* Zjištění oponentova objektu v poli shapes*/
     $first = $shapes[$opponent];
 
     $points = 0;
@@ -63,27 +68,48 @@ function fullGuide($opponent, $result, $shapes) {
     </head>
     <body>
         <h1 id="intersection">Rock Paper Scissors</h1>
-        <?php
-        $opponent = array();
-        $me = array();
+        <div id="left">
+            <h2>Input</h2>
+            <?php
+            /* Soubor s inputem */
+            $guide_file = "strategy_guide";
+            /* Načetní souboru */
+            $guide_content = file_get_contents($guide_file);
+            /* Rozparsování souboru po řádcích */
+            $guide_content = explode("\n", $guide_content);
 
-        $guide_file = "strategy_guide";
-        $guide_content = file_get_contents($guide_file);
-        $guide_content = explode("\n", $guide_content);
-        echo "Celkový počet her " . count($guide_content) . "<br>";
-        echo "Maximální počet bodů za jednu hru 9<br>";
-        echo "Maximální počet bodů celkově " . count($guide_content) * 9 . "<br>";
+            /* Vypsání souboru - věc navíc */
+            for ($i = 0; $i < count($guide_content); $i++) {
+                echo $guide_content[$i] . "<br>";
+            }
+            ?>
+        </div>
+        <div id="right">
+            <h2>Output</h2>
+            <?php
+            $opponent = array();
+            $me = array();
 
-        $total_score = 0;
-        $total_score2 = 0;
-        for ($i = 0; $i < count($guide_content); $i++) {
-            $row = explode(" ", $guide_content[$i]);
+            echo "Celkový počet her " . count($guide_content) . "<br>";
+            echo "Maximální počet bodů za jednu hru 9<br>";
+            echo "Maximální počet bodů celkově " . count($guide_content) * 9 . "<br>";
 
-            $total_score += play($row[0], $row[1], $shapes);
-            $total_score2 += fullGuide($row[0], $row[1], $shapes);
-        }
-        echo "Turnaj jsem dokončil s výsledným skóre {$total_score} bodů<br>";
-        echo "Turnaj jsem dokončil s výsledným skóre {$total_score2} bodů";
-        ?>
+            $total_score = 0;
+            $total_score2 = 0;
+            
+            /* Procházení jednotlivých řádků */
+            for ($i = 0; $i < count($guide_content); $i++) {
+                /* Parsování řádku podle mezery */
+                $row = explode(" ", $guide_content[$i]);
+                
+                /* Hraní s prvním strategy_guide */
+                $total_score += play($row[0], $row[1], $shapes);
+                /* Hraní s druhým strategy_guidem */
+                $total_score2 += fullGuide($row[0], $row[1], $shapes);
+            }
+            echo "Turnaj jsem dokončil s výsledným skóre {$total_score} bodů<br>";
+            echo "Turnaj jsem dokončil s výsledným skóre {$total_score2} bodů";
+            ?>
+        </div>
     </body>
 </html>
