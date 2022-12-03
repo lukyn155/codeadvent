@@ -67,7 +67,7 @@ function fullGuide($opponent, $result, $shapes) {
         <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:300&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <h1 id="intersection">Rock Paper Scissors</h1>
+        <h1 id="intersection">Day 2: Rock Paper Scissors</h1>
         <div id="left">
             <h2>Input</h2>
             <?php
