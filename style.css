@@ -30,6 +30,7 @@ h1 {
     flex-wrap: wrap;
 }
 .advent_days {
+    position: relative;
     width: 100px;
     height: 100px;
     margin-top: 20px;
@@ -50,6 +51,48 @@ h1 {
     color: #0f0f23;
 }
 
-/*div.container div:nth-child(odd) {
-    background-color: red;
-}*/
+a:nth-child(1) div {
+    background-color: #99ff99;
+    color: #0f0f23;
+}
+a:nth-child(1) div:hover {
+    background-color: #0f0f23;
+    color: #99ff99;
+}
+a:nth-child(1) div .status {
+    display: block;
+}
+
+a:nth-child(2) div {
+    background-color: #99ff99;
+    color: #0f0f23;
+}
+a:nth-child(2) div:hover {
+    background-color: #0f0f23;
+    color: #99ff99;
+}
+a:nth-child(2) div .status {
+    display: block;
+}
+a:nth-child(3) div {
+    background-color: #99ff99;
+    color: #0f0f23;
+}
+a:nth-child(3) div:hover {
+    background-color: #0f0f23;
+    color: #99ff99;
+}
+a:nth-child(3) div .status {
+    display: block;
+}
+a:nth-child(4) div {
+    background-color: #99ff99;
+    color: #0f0f23;
+}
+a:nth-child(4) div:hover {
+    background-color: #0f0f23;
+    color: #99ff99;
+}
+a:nth-child(4) div .status {
+    display: block;
+}
