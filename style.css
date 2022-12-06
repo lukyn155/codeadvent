@@ -96,3 +96,25 @@ a:nth-child(4) div:hover {
 a:nth-child(4) div .status {
     display: block;
 }
+a:nth-child(5) div {
+    background-color: #99ff99;
+    color: #0f0f23;
+}
+a:nth-child(5) div:hover {
+    background-color: #0f0f23;
+    color: #99ff99;
+}
+a:nth-child(5) div .status {
+    display: block;
+}
+a:nth-child(6) div {
+    background-color: #99ff99;
+    color: #0f0f23;
+}
+a:nth-child(6) div:hover {
+    background-color: #0f0f23;
+    color: #99ff99;
+}
+a:nth-child(6) div .status {
+    display: block;
+}
