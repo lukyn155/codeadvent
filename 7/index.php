@@ -1,5 +1,4 @@
 <?php
-require_once './system.php';
 require_once './folders.php';
 
 $tmp = 70000000;
@@ -23,12 +22,13 @@ function getValue($arr, $tmp) {
         <link href="//fonts.googleapis.com/css?family=Source+Code+Pro:300&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <h1 id="intersection">Day 6: Tuning Trouble</h1>
+        <h1 id="intersection">Day 7: No Space Left On Device</h1>
         <div id="left">
             <h2>Input</h2>
             <?php
             /* Soubor s inputem */
-            $input_file = "commands";
+//            $input_file = "commands";
+            $input_file = "test2";
 //$input_file = "test";
             /* Načetní souboru */
             $input_content = file_get_contents($input_file);
@@ -36,9 +36,7 @@ function getValue($arr, $tmp) {
             $input_content = explode("\n", $input_content);
 
             /* Vypsání souboru - věc navíc */
-            for ($i = 0;
-                    $i < count($input_content);
-                    $i++) {
+            for ($i = 0; $i < count($input_content); $i++) {
                 echo $input_content[$i] . "<br>";
             }
             ?>

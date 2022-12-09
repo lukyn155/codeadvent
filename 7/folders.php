@@ -70,6 +70,14 @@ class Folder {
         return $this->file_system;
     }
 
+    public function getContentSize() {
+//        $this->file_system = $this->files;
+        foreach ($this->dirs as $key => $value) {
+            $this->file_system[$key] = array($this->dirs[$key]->getContentSize(), $this->dirs[$key]->getFolderSum());
+        }
+        return $this->file_system;
+    }
+
     public function getSums() {
         $sums = array();
         foreach ($this->files as $key => $value) {
@@ -82,10 +90,12 @@ class Folder {
                 $this->rule_sum += $sums[1];
             }
             if ($this->folder_sum <= 100000) {
+                echo "Název složky: {$this->key} Velikosts {$this->folder_sum}<br>";
                 $this->rule_sum += $this->folder_sum;
             }
         } else {
             if ($this->folder_sum <= 100000) {
+                echo "Název složky: {$this->key} Velikosts {$this->folder_sum}<br>";
                 $this->rule_sum += $this->folder_sum;
             }
         }
