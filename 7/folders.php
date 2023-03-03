@@ -90,12 +90,12 @@ class Folder {
                 $this->rule_sum += $sums[1];
             }
             if ($this->folder_sum <= 100000) {
-                echo "Název složky: {$this->key} Velikosts {$this->folder_sum}<br>";
+//                echo "Název složky: {$this->key} Velikost {$this->folder_sum}<br>";
                 $this->rule_sum += $this->folder_sum;
             }
         } else {
             if ($this->folder_sum <= 100000) {
-                echo "Název složky: {$this->key} Velikosts {$this->folder_sum}<br>";
+//                echo "Název složky: {$this->key} Velikost {$this->folder_sum}<br>";
                 $this->rule_sum += $this->folder_sum;
             }
         }
