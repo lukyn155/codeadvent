@@ -14,7 +14,7 @@ class FileParser {
 
     private $input_content;
 
-    function __construct($input_file) {
+    function __construct(string $input_file) {
         $this->input_content = file_get_contents($input_file);
         /* Rozparsování souboru po řádcích */
         $this->input_content = explode("\n", $this->input_content);
@@ -28,7 +28,8 @@ class FileParser {
         $string = "";
         /* Vypsání souboru - věc navíc */
         for ($i = 0; $i < count($this->input_content); $i++) {
-             $string .= $this->input_content[$i] . "<br>";
+            $row = $i + 1;
+             $string .= "Řádek {$row}| " . $this->input_content[$i] . "<br>";
         }
         return $string;
     }
